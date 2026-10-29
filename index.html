@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chairing the Concordia Debate · A chair's companion for Sabrine Yassine</title>
+<meta name="description" content="A chair's companion for the Concordia Forum 2026 debate: format, scripts, timekeeping, Points of Information, the vote, and closing remarks.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b1530">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0b1530; --ink2:#12214a; --ocean:#1d4e6e; --teal:#3f8f9a;
+  --sand:#e9d8b4; --gold:#d4a64a; --gold2:#f0c96a; --paper:#f7f1e3;
+  --text:#f4efe4; --muted:#b9c2d6; --line:rgba(233,216,180,.22);
+  --prop:#6fb3c1; --opp:#e0a35a;
+  --serif:'Fraunces', Georgia, 'Times New Roman', serif;
+  --sans:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--ink);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{overflow:hidden}
+.deck{position:relative;width:100vw;height:100vh;height:100dvh}
+.slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  padding:clamp(18px,4.2vh,48px) clamp(18px,5vw,72px) clamp(54px,8vh,72px);
+  opacity:0;visibility:hidden;transition:opacity .45s ease, transform .45s ease;transform:translateX(24px);
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
+  background:
+    radial-gradient(1200px 600px at 110% 120%, rgba(63,143,154,.22), transparent 60%),
+    radial-gradient(900px 500px at -10% -20%, rgba(212,166,74,.10), transparent 60%),
+    linear-gradient(160deg, var(--ink) 0%, var(--ink2) 70%, #0f2a45 100%);
+}
+.slide.active{opacity:1;visibility:visible;transform:none}
+.slide.prev{transform:translateX(-24px)}
+.slide::after{ /* subtle wave line */
+  content:"";position:absolute;left:0;right:0;bottom:0;height:90px;pointer-events:none;opacity:.35;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 90' preserveAspectRatio='none'%3E%3Cpath d='M0 60 C150 30 300 90 450 60 S750 30 900 60 1050 90 1200 60' fill='none' stroke='%23d4a64a' stroke-width='1.2'/%3E%3Cpath d='M0 72 C150 45 300 100 450 72 S750 45 900 72 1050 100 1200 72' fill='none' stroke='%233f8f9a' stroke-width='1'/%3E%3C/svg%3E") bottom/100% 100% no-repeat;
+}
+.wrap{width:100%;max-width:1160px;margin:auto 0;position:relative;z-index:1}
+.kicker{font:600 clamp(11px,1.5vh,13px)/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:clamp(8px,1.6vh,16px);display:flex;align-items:center;gap:10px}
+.kicker::before{content:"";width:28px;height:1.5px;background:var(--gold)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;color:var(--paper)}
+h1{font-size:clamp(34px,6.4vh,64px);line-height:1.04}
+h2{font-size:clamp(26px,4.9vh,46px);line-height:1.08;margin-bottom:clamp(12px,2.4vh,24px)}
+h3{font-size:clamp(17px,2.4vh,22px);line-height:1.2;margin-bottom:6px;color:var(--sand)}
+p,li{font-size:clamp(15px,2.15vh,19px);line-height:1.45;color:var(--text)}
+.muted{color:var(--muted)}
+em{font-style:italic;color:var(--gold2)}
+strong{color:var(--paper);font-weight:600}
+.gold{color:var(--gold2)}
+.serif{font-family:var(--serif)}
+ul.clean{list-style:none}
+ul.clean li{position:relative;padding-left:22px;margin:0 0 clamp(5px,1vh,10px)}
+ul.clean li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.grid{display:grid;gap:clamp(12px,2vh,22px)}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:repeat(3,1fr)}
+.card{background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:16px;padding:clamp(12px,2.1vh,22px) clamp(14px,1.8vw,24px)}
+.card.gold{border-color:rgba(212,166,74,.55);background:rgba(212,166,74,.08)}
+.quip{margin-top:clamp(12px,2.2vh,22px);padding:clamp(10px,1.6vh,14px) 18px;border-left:3px solid var(--gold);background:rgba(212,166,74,.08);border-radius:0 12px 12px 0;font-family:var(--serif);font-style:italic;font-size:clamp(15px,2.2vh,19px);color:var(--sand)}
+.quip b{font-family:var(--sans);font-style:normal;font-size:.68em;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:3px}
+.say{font-family:var(--serif);font-size:clamp(15px,2.2vh,19.5px);line-height:1.5;color:var(--paper)}
+.say .stage{font-family:var(--sans);font-size:.72em;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-style:normal;display:block;margin:10px 0 2px}
+.tag{display:inline-block;font:600 11px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:5px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.tag.p{color:var(--ink);background:var(--prop);border-color:var(--prop)}
+.tag.o{color:var(--ink);background:var(--opp);border-color:var(--opp)}
+
+/* title */
+.title h1{font-size:clamp(38px,8.2vh,80px)}
+.title .motion{margin-top:clamp(16px,3.4vh,34px);font-family:var(--serif);font-style:italic;font-size:clamp(19px,3.2vh,30px);color:var(--sand);max-width:900px;line-height:1.3}
+.title .meta{margin-top:clamp(16px,3vh,30px);display:flex;flex-wrap:wrap;gap:10px 22px;color:var(--muted);font-size:clamp(13px,1.9vh,16px)}
+.title .meta span{display:flex;align-items:center;gap:8px}
+.title .meta span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.title .gift{margin-top:clamp(18px,3.6vh,36px);font-size:clamp(13px,1.8vh,15px);color:var(--muted);max-width:720px}
+.emblem{position:absolute;right:0;top:50%;transform:translateY(-50%);width:clamp(140px,26vh,250px);opacity:.9}
+
+/* timeline */
+.timeline{display:flex;width:100%;height:clamp(64px,10vh,92px);border-radius:14px;overflow:hidden;border:1px solid var(--line);margin:6px 0 10px}
+.timeline div{display:flex;flex-direction:column;justify-content:center;align-items:center;font-size:clamp(10px,1.45vh,13px);font-weight:600;color:var(--ink);text-align:center;line-height:1.15;border-right:1px solid rgba(11,21,48,.35);padding:0 2px}
+.timeline div small{font-weight:500;font-size:.88em;opacity:.8}
+.t-vote{background:var(--sand)} .t-p{background:var(--prop)} .t-o{background:var(--opp)} .t-floor{background:#9fb7a1} .t-end{background:var(--gold2)}
+.tl-scale{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-bottom:clamp(10px,2vh,20px)}
+table{width:100%;border-collapse:collapse;font-size:clamp(14px,2vh,17px)}
+th,td{text-align:left;padding:clamp(6px,1.1vh,10px) 12px;border-bottom:1px solid var(--line)}
+th{font:600 12px/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.win td{color:var(--gold2);font-weight:600}
+
+/* running order */
+.order{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1.5vh,14px) clamp(14px,2vw,26px)}
+.slot{display:flex;align-items:center;gap:14px;padding:clamp(9px,1.6vh,15px) 16px;border-radius:14px;border:1px dashed rgba(233,216,180,.35);background:rgba(255,255,255,.03)}
+.slot .n{font-family:var(--serif);font-size:clamp(22px,3.6vh,32px);color:var(--gold);width:34px;text-align:center;flex:none}
+.slot .who{flex:1}
+.slot .who b{display:block;font-size:clamp(15px,2.1vh,18px)}
+.slot .who span{font-size:clamp(12px,1.7vh,14px);color:var(--muted)}
+.slot .pencil{flex:none;width:clamp(90px,14vw,200px);border-bottom:1.5px solid rgba(233,216,180,.45);height:22px}
+
+/* signals */
+.signals{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.6vw,18px)}
+.sig{border:1px solid var(--line);border-radius:16px;padding:clamp(12px,2vh,20px) 14px;text-align:center;background:rgba(255,255,255,.04)}
+.sig .time{font-family:var(--serif);font-size:clamp(28px,5vh,44px);color:var(--gold2);line-height:1}
+.sig .knock{margin:8px 0 6px;font-size:clamp(18px,2.8vh,24px);letter-spacing:.2em}
+.sig p{font-size:clamp(13px,1.85vh,16px)}
+
+/* quote / closing */
+.closing .say{font-size:clamp(15.5px,2.35vh,21px);line-height:1.55;max-width:960px}
+.closing .say p{font-size:inherit;line-height:inherit;margin-bottom:.7em;color:var(--paper)}
+
+/* cheat sheet */
+.cheat{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,1.4vh,14px)}
+.cheat .card{padding:clamp(9px,1.5vh,14px) 14px}
+.cheat h3{font-size:clamp(14px,2vh,17px);margin-bottom:4px;color:var(--gold2)}
+.cheat p,.cheat li{font-size:clamp(12px,1.7vh,14.5px);line-height:1.38}
+.cheat ul.clean li{padding-left:14px;margin-bottom:2px}
+.cheat ul.clean li::before{width:5px;height:5px;top:.6em}
+
+.banter{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1.4vh,14px) clamp(14px,2vw,24px)}
+.banter .b{padding:clamp(8px,1.4vh,13px) 16px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+.banter .b small{display:block;font:600 10.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:5px}
+.banter .b span{font-family:var(--serif);font-style:italic;font-size:clamp(14.5px,2.05vh,18px);color:var(--sand);line-height:1.35}
+
+.tips{counter-reset:t;display:grid;grid-template-columns:1fr 1fr;gap:clamp(6px,1.2vh,12px) clamp(18px,3vw,40px)}
+.tips li{list-style:none;counter-increment:t;position:relative;padding-left:44px;font-size:clamp(14px,2vh,17.5px)}
+.tips li::before{content:counter(t,decimal-leading-zero);position:absolute;left:0;top:-1px;font-family:var(--serif);font-size:1.25em;color:var(--gold)}
+
+/* chrome */
+.progress{position:fixed;left:0;top:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2));z-index:20;transition:width .35s ease}
+.hud{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:10px clamp(14px,3vw,30px) calc(10px + env(safe-area-inset-bottom));z-index:20;pointer-events:none;font-size:12px;color:var(--muted);letter-spacing:.06em}
+.hud .brand{opacity:.8}
+.hud .ctrl{display:flex;align-items:center;gap:10px;pointer-events:auto}
+.hud button{all:unset;cursor:pointer;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);color:var(--sand);background:rgba(11,21,48,.7);font-size:16px}
+.hud button:hover{border-color:var(--gold);color:var(--gold2)}
+.hud .count{min-width:56px;text-align:center;font-variant-numeric:tabular-nums}
+.hint{position:fixed;left:50%;bottom:62px;transform:translateX(-50%);font-size:12px;color:var(--muted);opacity:0;transition:opacity .6s;pointer-events:none;z-index:20;white-space:nowrap}
+.hint.show{opacity:.9}
+
+@media (max-width: 760px){
+  .slide{align-items:flex-start;padding:26px 18px 78px}
+  .g2,.g3,.order,.banter,.tips,.cheat{grid-template-columns:1fr}
+  .signals{grid-template-columns:1fr 1fr}
+  .emblem{display:none}
+  .hud .brand{display:none}
+  .timeline{height:auto;flex-direction:column}
+  .timeline div{flex:none!important;flex-direction:row;gap:8px;justify-content:space-between;padding:7px 12px;border-right:0;border-bottom:1px solid rgba(11,21,48,.35);font-size:13px}
+  .tl-scale{display:none}
+  h1{font-size:34px} .title h1{font-size:38px}
+  h2{font-size:27px}
+  .slot .pencil{width:70px}
+  table{font-size:13.5px} th,td{padding:7px 6px}
+  .title{padding-top:48px}
+}
+@media (max-height:560px) and (min-width:761px){ .slide{align-items:flex-start} }
+
+/* print: one slide per page */
+@media print{
+  @page{size:A4 landscape;margin:0}
+  html,body{height:auto;overflow:visible;background:var(--ink)}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .deck{height:auto}
+  .slide{position:relative;inset:auto;opacity:1;visibility:visible;transform:none;width:297mm;height:209mm;overflow:hidden;page-break-after:always;break-after:page;padding:14mm 16mm 16mm;align-items:center;transition:none}
+  .slide:last-child{page-break-after:auto;break-after:auto}
+  .progress,.hud,.hint{display:none}
+  .g2{grid-template-columns:1fr 1fr}.g3,.cheat{grid-template-columns:repeat(3,1fr)}.order,.banter,.tips{grid-template-columns:1fr 1fr}.signals{grid-template-columns:repeat(4,1fr)}
+  h1{font-size:44px} .title h1{font-size:54px} h2{font-size:32px} p,li{font-size:14px} .say{font-size:14.5px} .closing .say{font-size:15.5px}
+  .cheat p,.cheat li{font-size:11px} .cheat h3{font-size:13px}
+  .timeline{height:70px;flex-direction:row}.timeline div{flex-direction:column;font-size:10px}
+  .slide-num{display:block}
+}
+.slide-num{display:none;position:absolute;right:16mm;bottom:8mm;font-size:10px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<main class="deck" id="deck">
+
+<!-- 1 TITLE -->
+<section class="slide title" data-title="Title">
+  <div class="wrap">
+    <svg class="emblem" viewBox="0 0 200 200" aria-hidden="true">
+      <circle cx="100" cy="100" r="92" fill="none" stroke="#d4a64a" stroke-width="1.2"/>
+      <circle cx="100" cy="100" r="78" fill="none" stroke="#3f8f9a" stroke-width=".8" stroke-dasharray="2 5"/>
+      <g fill="none" stroke="#e9d8b4" stroke-width="1.6" stroke-linecap="round">
+        <path d="M100 48 L100 138"/><path d="M62 70 L138 70"/>
+        <path d="M62 70 L46 108 Q62 120 78 108 Z"/><path d="M138 70 L122 108 Q138 120 154 108 Z"/>
+        <path d="M80 140 L120 140"/>
+      </g>
+      <circle cx="100" cy="44" r="4" fill="#f0c96a"/>
+      <path d="M30 160 C60 150 80 168 100 160 S140 150 170 160" fill="none" stroke="#3f8f9a" stroke-width="1.2"/>
+    </svg>
+    <div class="kicker">17th Annual Concordia Forum Retreat</div>
+    <h1>Chairing the<br>Concordia Debate</h1>
+    <p class="muted" style="margin-top:10px;font-size:clamp(16px,2.4vh,21px)">A chair’s companion for <strong>Sabrine Yassine</strong></p>
+    <p class="motion">“This House Believes The Algorithm Will Become More Authoritative Than The ‘Ālim”</p>
+    <div class="meta"><span>Saturday 31 October 2026</span><span>Arabella Hotel, Golf &amp; Spa · Kleinmond, Western Cape</span><span>Oxford Union style</span></div>
+    <p class="gift">With warm thanks for chairing, from Bilal Hassam. Strictly neutral, scrupulously fair, and (like any good umpire) not taking sides. Use the arrow keys, tap, or swipe.</p>
+  </div>
+</section>
+
+<!-- 2 THE MOTION -->
+<section class="slide" data-title="The motion">
+  <div class="wrap">
+    <div class="kicker">The motion</div>
+    <h2>Why it’s a cracker</h2>
+    <p style="font-family:var(--serif);font-style:italic;font-size:clamp(18px,2.8vh,25px);color:var(--sand);margin-bottom:clamp(14px,2.6vh,26px)">“This House Believes The Algorithm Will Become More Authoritative Than The ‘Ālim”</p>
+    <div class="grid g3">
+      <div class="card"><h3>“Authoritative”</h3><p>Trusted? Obeyed? Consulted first? Legitimate? Each side will want its own definition, so listen for it in the first speeches.</p></div>
+      <div class="card"><h3>“Will become”</h3><p>A prediction about the future, not a verdict on what <em>should</em> happen. Is the side arguing <em>is</em>, <em>will</em> or <em>ought</em>?</p></div>
+      <div class="card"><h3>“The ‘Ālim”</h3><p>The scholar as a person: learning, character, accountability, a chain of teachers. Authority for whom, and in what domain?</p></div>
+    </div>
+    <div class="grid g2" style="margin-top:clamp(12px,2vh,20px)">
+      <div class="card"><span class="tag p">Proposition</span><p style="margin-top:8px">Must show that, on balance, the algorithm <strong>will</strong> come to carry <strong>more</strong> authority than the scholar.</p></div>
+      <div class="card"><span class="tag o">Opposition</span><p style="margin-top:8px">Must show that it <strong>won’t</strong>: that the scholar’s authority will hold or stay greater.</p></div>
+    </div>
+    <div class="quip"><b>Line to borrow</b>A motion about who we trust, chaired by an Australian in South Africa. What could possibly go wrong?</div>
+  </div>
+</section>
+
+<!-- 3 FORMAT -->
+<section class="slide" data-title="Format">
+  <div class="wrap">
+    <div class="kicker">The format at a glance</div>
+    <h2>50 minutes, start to stumps</h2>
+    <div class="timeline" aria-label="Timeline">
+      <div class="t-vote" style="flex:4">Welcome &amp; vote<small>4 min</small></div>
+      <div class="t-p" style="flex:5.5">Prop 1<small>5</small></div>
+      <div class="t-o" style="flex:5.5">Opp 1<small>5</small></div>
+      <div class="t-p" style="flex:5.5">Prop 2<small>5</small></div>
+      <div class="t-o" style="flex:5.5">Opp 2<small>5</small></div>
+      <div class="t-p" style="flex:5.5">Prop 3<small>5</small></div>
+      <div class="t-o" style="flex:5.5">Opp 3<small>5</small></div>
+      <div class="t-floor" style="flex:8">Floor<small>8 min</small></div>
+      <div class="t-end" style="flex:5">Vote, result, close<small>5 min</small></div>
+    </div>
+    <div class="tl-scale"><span>0′</span><span>4′</span><span>~37′</span><span>~45′</span><span>50′</span></div>
+    <div class="grid g3">
+      <div class="card"><h3>Speeches</h3><p>Six × 5 min, alternating, <strong>Proposition first</strong>. Allow ~30 sec per changeover for your intro (≈33 min in all).</p></div>
+      <div class="card"><h3>Floor</h3><p>About 8 min of audience contributions, <strong>1 min each</strong>. Roughly 6–8 voices.</p></div>
+      <div class="card"><h3>The vote</h3><p>Before and after. The side that <strong>moves the most votes</strong> wins.</p></div>
+    </div>
+    <p class="muted" style="margin-top:12px;font-size:14px">Timings are a guide: 4 + 33 + 8 + 5 = 50. If you run late, trim the floor, never a speech.</p>
+  </div>
+</section>
+
+<!-- 4 RUNNING ORDER -->
+<section class="slide" data-title="Running order">
+  <div class="wrap">
+    <div class="kicker">Running order</div>
+    <h2>Six slots, alternating</h2>
+    <div class="order">
+      <div class="slot"><div class="n">1</div><div class="who"><b>Proposition 1</b><span>Opens the case, defines terms</span></div><div class="pencil"></div></div>
+      <div class="slot"><div class="n">2</div><div class="who"><b>Opposition 1</b><span>Opens the case, defines terms</span></div><div class="pencil"></div></div>
+      <div class="slot"><div class="n">3</div><div class="who"><b>Proposition 2</b><span>New arguments + responds</span></div><div class="pencil"></div></div>
+      <div class="slot"><div class="n">4</div><div class="who"><b>Opposition 2</b><span>New arguments + responds</span></div><div class="pencil"></div></div>
+      <div class="slot"><div class="n">5</div><div class="who"><b>Proposition 3</b><span>Rebuts &amp; sums up, no major new arguments</span></div><div class="pencil"></div></div>
+      <div class="slot"><div class="n">6</div><div class="who"><b>Opposition 3</b><span>Rebuts &amp; sums up, no major new arguments</span></div><div class="pencil"></div></div>
+    </div>
+    <div class="grid g2" style="margin-top:clamp(12px,2.2vh,22px)">
+      <div class="card"><h3>Proposition team</h3><p class="muted">Names and order to be confirmed on the day.</p></div>
+      <div class="card"><h3>Opposition team</h3><p>Bilal <strong>Hassam</strong> (Muslimi) · Dilara Sayeed (Penny Appeal USA) · Faisal Mirza (photographer &amp; thinker). <span class="muted">Order to be confirmed.</span></p></div>
+    </div>
+    <div class="quip"><b>Pencil note</b>Grab each team’s batting order before the first ball and pencil the names in here.</div>
+  </div>
+</section>
+
+<!-- 5 OPENING SCRIPT -->
+<section class="slide" data-title="Opening script">
+  <div class="wrap">
+    <div class="kicker">Opening script · read as written, or riff</div>
+    <h2>Your first two minutes</h2>
+    <div class="grid g2">
+      <div class="say">
+        <span class="stage">Welcome</span>
+        Assalamu alaykum, and good evening. I’m Sabrine Yassine, and tonight I have the great honour of chairing, or as we’d say back home, umpiring, the Concordia debate.
+        <span class="stage">The motion</span>
+        The motion is: <em>“This House Believes The Algorithm Will Become More Authoritative Than The ‘Ālim.”</em> The Proposition will argue for it; the Opposition against.
+        <span class="stage">A light line</span>
+        I’m an Australian chairing in South Africa, so I promise to be scrupulously neutral, which, given the cricket, is a real act of faith.
+      </div>
+      <div class="say">
+        <span class="stage">The rules, briefly</span>
+        Six speakers, five minutes each, alternating, Proposition first. Points of Information may be offered after the first minute and before the last. After the speeches I’ll open the floor for one-minute contributions.
+        <span class="stage">Housekeeping</span>
+        Phones on silent, please. And in the spirit of the evening: play the ball, not the person.
+        <span class="stage">First vote</span>
+        Before we begin, let’s see where the House stands. <strong>[Explain the voting method.]</strong> Remember: the winner is not the side with the most votes, but the side that <strong>moves</strong> the most.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 INTRODUCING SPEAKERS -->
+<section class="slide" data-title="Introducing speakers">
+  <div class="wrap">
+    <div class="kicker">Introducing speakers</div>
+    <h2>Short, warm, identical in length</h2>
+    <div class="grid g2">
+      <div>
+        <ul class="clean">
+          <li><strong>Same length for everyone.</strong> Two lines each; neutrality lives in the details.</li>
+          <li><strong>Name, role, one human detail.</strong> Skip the full CV.</li>
+          <li><strong>Say the side and slot.</strong> “Opening for the Proposition…”</li>
+          <li><strong>Start the clock on their first word</strong>, not when they stand up.</li>
+          <li><strong>Thank each speaker</strong> by name as they sit. Same warmth both sides.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="card gold say">
+          <span class="stage" style="margin-top:0">Template line</span>
+          “Opening for the <em>[Proposition / Opposition]</em>, please welcome <em>[Name]</em>, <em>[role]</em>, who <em>[one line]</em>. <em>[First name]</em>, your five minutes start when you do.”
+        </div>
+        <div class="card" style="margin-top:14px">
+          <h3>Pronunciation check</h3>
+          <p>Ask every speaker, both sides, how they say their name, and jot it phonetically on slide 4. Note: it’s <strong>Hassam</strong>, not “Hassem” (a typo in the organiser’s email).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 TIMEKEEPING -->
+<section class="slide" data-title="Timekeeping">
+  <div class="wrap">
+    <div class="kicker">Timekeeping</div>
+    <h2>The bell’s the bell, mate</h2>
+    <div class="signals">
+      <div class="sig"><div class="time">1:00</div><div class="knock">●</div><p><strong>One tap.</strong> Protected time over: POIs open.</p></div>
+      <div class="sig"><div class="time">4:00</div><div class="knock">●</div><p><strong>One tap.</strong> Final minute: POIs closed.</p></div>
+      <div class="sig"><div class="time">5:00</div><div class="knock">● ●</div><p><strong>Double tap.</strong> Time. Finish the sentence.</p></div>
+      <div class="sig"><div class="time">5:15</div><div class="knock">● ● ●</div><p><strong>Gavel.</strong> Grace over. Thank them, move on.</p></div>
+    </div>
+    <div class="grid g2" style="margin-top:clamp(14px,2.4vh,24px)">
+      <div class="card"><h3>Set-up</h3><p>Use a phone stopwatch you can see (or a timekeeper with cards). Explain the signals once at the start, so nobody is surprised.</p></div>
+      <div class="card"><h3>For overrunners</h3><p class="serif" style="font-style:italic;color:var(--sand)">“That’s over the boundary rope, I’m afraid. Thank you.”<br>“Lovely point, and we’ll have to let the House hold it there.”</p></div>
+    </div>
+    <div class="quip"><b>Golden rule</b>Same grace for everyone. Fifteen seconds is fifteen seconds, whichever end you’re batting from.</div>
+  </div>
+</section>
+
+<!-- 8 POIs -->
+<section class="slide" data-title="Points of Information">
+  <div class="wrap">
+    <div class="kicker">Points of Information</div>
+    <h2>15 seconds, by invitation</h2>
+    <div class="grid g3">
+      <div class="card"><h3>The rules</h3><ul class="clean"><li>Opposing team stands to offer</li><li>Max <strong>15 seconds</strong></li><li>Speaker may accept or decline</li><li>Not in the first or last minute</li></ul></div>
+      <div class="card"><h3>Keep it fair</h3><ul class="clean"><li>Speakers are encouraged to take <strong>one or two</strong></li><li>The clock keeps running</li><li>Audience POIs at your discretion, offered evenly to both sides</li></ul></div>
+      <div class="card"><h3>Watch for</h3><ul class="clean"><li>Mini-speeches: cut at 15 sec</li><li>Barracking: constant standing to distract</li><li>POIs in protected time: wave down</li></ul></div>
+    </div>
+    <div class="grid g2" style="margin-top:clamp(12px,2vh,20px)">
+      <div class="card say"><span class="stage" style="margin-top:0">Lines</span>“Point of Information, does the speaker accept?”<br>“That’s protected time; please take your seat.”<br>“A question, please, not a second speech.”</div>
+      <div class="quip" style="margin-top:0"><b>Aussie line</b>“Make it a fair dinkum question, short and straight down the pitch.”</div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 KEEPING ORDER -->
+<section class="slide" data-title="Keeping order">
+  <div class="wrap">
+    <div class="kicker">Keeping order</div>
+    <h2>Gentle, firm, early</h2>
+    <div class="grid g2">
+      <table>
+        <tr><th>If…</th><th>Try…</th></tr>
+        <tr><td>Heckling from the floor</td><td>“Hold that thought for the floor session; you’ll get your minute.”</td></tr>
+        <tr><td>Overrunning</td><td>Double tap, then the gavel at 5:15. No exceptions, both sides.</td></tr>
+        <tr><td>Personal remarks</td><td>“Let’s keep it to the argument, not the arguer.”</td></tr>
+        <tr><td>Drifting off motion</td><td>“Bring us back to the motion: algorithm and ‘ālim.”</td></tr>
+        <tr><td>Talking over each other</td><td>Stand, raise a hand, wait. Silence works wonders.</td></tr>
+      </table>
+      <div>
+        <div class="card"><h3>A faith-sensitive topic</h3><p>This touches scholarship, religion and trust. Protect <strong>respect for scholars, for tradition and for each other</strong>, while leaving both sides free to argue hard. Step in on tone, never on viewpoint.</p></div>
+        <div class="quip"><b>Aussie line</b>“Robust is welcome. Sledging is not. This is a Test match, not the backyard.”</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 FLOOR -->
+<section class="slide" data-title="Floor contributions">
+  <div class="wrap">
+    <div class="kicker">Floor contributions</div>
+    <h2>One minute, many voices</h2>
+    <div class="grid g2">
+      <div>
+        <h3>Picking fairly</h3>
+        <ul class="clean">
+          <li><strong>Take two or three hands at a time</strong>, then let them speak in turn.</li>
+          <li><strong>Balance</strong> women and men, front and back, left and right of the room.</li>
+          <li><strong>Alternate</strong> leaning-for and leaning-against where you can tell.</li>
+          <li><strong>Newcomers first</strong>: favour people who haven’t yet spoken.</li>
+          <li>Ask each to give their <strong>name</strong> and keep to <strong>one point</strong>.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="card say"><span class="stage" style="margin-top:0">Lines</span>
+        “The floor is open: one minute each, one point each.”<br>
+        “I’ll take the gentleman at the back, then the sister by the window, then you, at the front.”<br>
+        “Thank you, that’s the minute.”<br>
+        “Time for one more, briefly.”</div>
+        <div class="quip"><b>Aussie line</b>“Short and sharp, like a dip at Bondi in October.”</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 THE VOTE -->
+<section class="slide" data-title="The vote">
+  <div class="wrap">
+    <div class="kicker">The vote and the result</div>
+    <h2>Most moved, not most votes</h2>
+    <div class="grid g2">
+      <div>
+        <table>
+          <tr><th>Example only</th><th class="num">Before</th><th class="num">After</th><th class="num">Moved</th></tr>
+          <tr><td>Side A</td><td class="num">60</td><td class="num">64</td><td class="num">+4</td></tr>
+          <tr class="win"><td>Side B</td><td class="num">20</td><td class="num">34</td><td class="num">+14</td></tr>
+          <tr><td>Undecided</td><td class="num">20</td><td class="num">2</td><td class="num">−18</td></tr>
+        </table>
+        <p class="muted" style="margin-top:10px;font-size:14px">Illustrative numbers, not a prediction. Side A still has the most votes, but <strong>Side B wins</strong>: it moved more.</p>
+      </div>
+      <div>
+        <ul class="clean">
+          <li><strong>Agree the method</strong> with organisers in advance (hands, cards, app) and whether “undecided” is an option.</li>
+          <li><strong>Use percentages</strong> if people arrive or leave mid-debate.</li>
+          <li><strong>Two counters</strong>, one per side of the room. Write the numbers down.</li>
+          <li><strong>Announce in order:</strong> before → after → change → winner.</li>
+        </ul>
+        <div class="card gold say" style="margin-top:10px">“Before the debate: <em>[x]</em> for, <em>[y]</em> against. Now: <em>[x]</em> for, <em>[y]</em> against. The side that moved the House furthest, and wins tonight’s debate, is… the <em>[side]</em>.”</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 TIPS -->
+<section class="slide" data-title="Chairing tips">
+  <div class="wrap">
+    <div class="kicker">General chairing tips &amp; tricks</div>
+    <h2>Ten for the pocket</h2>
+    <ol class="tips">
+      <li><strong>Be the most relaxed person in the room.</strong> Calm is contagious.</li>
+      <li><strong>Name the stakes</strong> early: why this motion matters to this room.</li>
+      <li><strong>Keep intros short.</strong> The speakers are the show.</li>
+      <li><strong>One-line bridge</strong> between speeches: who spoke, who’s next. No commentary.</li>
+      <li><strong>Read the room.</strong> Flagging energy? A smile and a brisk pace fix most things.</li>
+      <li><strong>Equal everything:</strong> intro length, grace time, warmth, eye contact.</li>
+      <li><strong>Have a backup</strong> if a speaker is missing or the tech fails (see contingencies).</li>
+      <li><strong>Use names</strong>, never “the last speaker”.</li>
+      <li><strong>Pause before announcing.</strong> Let the moment land.</li>
+      <li><strong>Enjoy it.</strong> Chairs who enjoy themselves make debates people remember.</li>
+    </ol>
+    <div class="quip"><b>Umpire’s creed</b>The best umpires are the ones nobody talks about at the end.</div>
+  </div>
+</section>
+
+<!-- 13 BANTER BANK -->
+<section class="slide" data-title="Banter bank">
+  <div class="wrap">
+    <div class="kicker">Aussie banter bank · optional, sparingly</div>
+    <h2>One per section, max</h2>
+    <div class="banter">
+      <div class="b"><small>Opening</small><span>“I’m your umpire tonight: neutral, watching the line, and immune to appealing.”</span></div>
+      <div class="b"><small>Aussie vs Saffa</small><span>“An Aussie chairing in South Africa. I’ve been asked not to mention the cricket. So I won’t. Much.”</span></div>
+      <div class="b"><small>Time</small><span>“The bell’s the bell, mate.”</span></div>
+      <div class="b"><small>Order</small><span>“No sledging. Robust, yes. Personal, no.”</span></div>
+      <div class="b"><small>POIs</small><span>“Fair dinkum question, please. Not a second innings.”</span></div>
+      <div class="b"><small>The Cape</small><span>“If the Cape Doctor blows your notes into the ocean, I’ll stop the clock. Once.”</span></div>
+      <div class="b"><small>Sun-smart</small><span>“Slip, slop, slap: slip in, make your point, slap down the notes.”</span></div>
+      <div class="b"><small>Close</small><span>“And that, friends, is stumps.”</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 CONTINGENCIES -->
+<section class="slide" data-title="Contingencies">
+  <div class="wrap">
+    <div class="kicker">Contingencies</div>
+    <h2>If it all goes pear-shaped</h2>
+    <div class="grid g3">
+      <div class="card"><h3>Tech fails</h3><p>Mic dies? Speaker steps forward, the room leans in. Stop the clock for genuine faults only. Keep a paper backup for the vote.</p></div>
+      <div class="card"><h3>Speaker absent</h3><p>Agree in advance: a teammate takes the slot, or the side runs with two (the order still alternates). Announce it plainly, no fuss.</p></div>
+      <div class="card"><h3>Time runs short</h3><p>Trim the floor, never a speech. Shrink to 30-second contributions, then go straight to the vote.</p></div>
+      <div class="card"><h3>A tie</h3><p>Equal movement? Agree the tie-break with organisers beforehand. If none: “The House has spoken, and it spoke evenly.” A draw is a result.</p></div>
+      <div class="card"><h3>Heated exchange</h3><p>Stand. Pause. “Let’s take a breath; strong views, and good manners.” Then return to the speaker on the clock.</p></div>
+      <div class="card gold"><h3>Your secret weapon</h3><p>Silence. A calm chair who waits a beat is more powerful than any gavel.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 CLOSING -->
+<section class="slide closing" data-title="Closing remarks">
+  <div class="wrap">
+    <div class="kicker">Closing remarks · word for word</div>
+    <div class="say">
+      <p>Friends, before we part, a word about what just happened in this room.</p>
+      <p>For fifty minutes, six people stood up, made a case, were challenged, and answered. And you weighed them, changed your minds or held your ground, and said so openly. That is one of the oldest ways we have of seeking the truth.</p>
+      <p>Our tradition carried knowledge hand to hand: teacher to student, link by link, each one a person who could be questioned and who answered for what they taught. Tonight the Proposition asked us to take seriously how fast the world is changing. The Opposition asked us to take seriously what must endure. Both are acts of care.</p>
+      <p>We will build extraordinary tools. May we have the wisdom to remain their masters, and the humility to remember what we ourselves do not know.</p>
+      <p>And may we remember that the most important thing here tonight was never the motion. It was <em>us</em>: a community that argues with courtesy, listens with generosity, and leaves as friends.</p>
+      <p>Whichever way you voted, thank you. That’s stumps.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 16 CHEAT SHEET -->
+<section class="slide" data-title="Cheat sheet">
+  <div class="wrap">
+    <div class="kicker">One-page cheat sheet · printable</div>
+    <h2 style="margin-bottom:clamp(8px,1.6vh,16px)">Everything on one page</h2>
+    <div class="cheat">
+      <div class="card"><h3>Motion</h3><p>“This House Believes The Algorithm Will Become More Authoritative Than The ‘Ālim.” Key words: <em>authoritative</em>, <em>will become</em>.</p></div>
+      <div class="card"><h3>Format · 50 min</h3><p>Welcome + vote 4′ · six speeches × 5′ alternating, Prop first (~33′ with intros) · floor ~8′ · vote, result, close 5′.</p></div>
+      <div class="card"><h3>Roles</h3><ul class="clean"><li>1st: set out case, define terms</li><li>2nd: new arguments + respond</li><li>3rd: rebut &amp; sum up, no major new args</li></ul></div>
+      <div class="card"><h3>Signals</h3><ul class="clean"><li>1:00 one tap: POIs open</li><li>4:00 one tap: POIs closed</li><li>5:00 double tap: time</li><li>5:15 gavel: grace over</li></ul></div>
+      <div class="card"><h3>POIs</h3><ul class="clean"><li>Opposing team; audience at your discretion</li><li>Max 15 sec; accept or decline</li><li>Not in first or last minute</li><li>Encourage one or two</li></ul></div>
+      <div class="card"><h3>Floor</h3><ul class="clean"><li>1 minute, one point each</li><li>Take hands in twos or threes</li><li>Balance gender, room, sides; newcomers first</li></ul></div>
+      <div class="card"><h3>Order</h3><ul class="clean"><li>Argument, not arguer</li><li>Tone, never viewpoint</li><li>Equal grace both sides</li></ul></div>
+      <div class="card"><h3>The vote</h3><p>Before and after. Winner = side that <strong>moves the most votes</strong>, not the most votes. Announce before → after → change → winner.</p></div>
+      <div class="card gold"><h3>Remember</h3><p>Hassam, not Hassem. Check every name. Trim the floor, never a speech. Enjoy it. That’s stumps.</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+<div class="hint" id="hint">← → keys · tap the edges · or swipe</div>
+<div class="hud">
+  <div class="brand">Concordia Forum 2026 · Chair’s companion</div>
+  <div class="ctrl">
+    <button id="prevBtn" aria-label="Previous slide">‹</button>
+    <div class="count" id="count">1 / 16</div>
+    <button id="nextBtn" aria-label="Next slide">›</button>
+  </div>
+</div>
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var n=slides.length, i=0;
+  slides.forEach(function(s,k){var d=document.createElement('div');d.className='slide-num';d.textContent=(k+1)+' / '+n;s.appendChild(d);});
+  var prog=document.getElementById('progress'), count=document.getElementById('count');
+  function go(k,push){
+    k=Math.max(0,Math.min(n-1,k));
+    slides.forEach(function(s,j){s.classList.toggle('active',j===k);s.classList.toggle('prev',j<k);s.setAttribute('aria-hidden',j!==k);});
+    i=k; slides[k].scrollTop=0;
+    prog.style.width=((k+1)/n*100)+'%';
+    count.textContent=(k+1)+' / '+n;
+    document.title=slides[k].dataset.title+' · Chairing the Concordia Debate';
+    if(push!==false) history.replaceState(null,'','#'+(k+1));
+  }
+  function fromHash(){var h=parseInt(location.hash.slice(1),10);return isNaN(h)?0:h-1;}
+  go(fromHash(),false);
+  window.addEventListener('hashchange',function(){go(fromHash(),false);});
+  document.getElementById('prevBtn').onclick=function(e){e.stopPropagation();go(i-1);};
+  document.getElementById('nextBtn').onclick=function(e){e.stopPropagation();go(i+1);};
+  document.addEventListener('keydown',function(e){
+    if(['ArrowRight','PageDown',' ','Enter'].indexOf(e.key)>-1){e.preventDefault();go(i+1);}
+    else if(['ArrowLeft','PageUp','Backspace'].indexOf(e.key)>-1){e.preventDefault();go(i-1);}
+    else if(e.key==='Home'){go(0);} else if(e.key==='End'){go(n-1);}
+  });
+  // click edges (outer 28%) to navigate; middle left free for reading/selecting
+  document.getElementById('deck').addEventListener('click',function(e){
+    if(window.getSelection && String(window.getSelection()).length) return;
+    var x=e.clientX/window.innerWidth;
+    if(x>0.72) go(i+1); else if(x<0.28) go(i-1);
+  });
+  // swipe
+  var sx=0,sy=0,st=0;
+  document.addEventListener('touchstart',function(e){var t=e.touches[0];sx=t.clientX;sy=t.clientY;st=Date.now();},{passive:true});
+  document.addEventListener('touchend',function(e){
+    var t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;
+    if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)*1.4 && Date.now()-st<800){ go(dx<0?i+1:i-1); }
+  },{passive:true});
+  var hint=document.getElementById('hint');
+  if(i===0){setTimeout(function(){hint.classList.add('show');},900);setTimeout(function(){hint.classList.remove('show');},5200);}
+  window.__go=go;
+})();
+</script>
+</body>
+</html>
